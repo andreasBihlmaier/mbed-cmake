@@ -2,7 +2,7 @@
 # Copyright by Uwe Arzt mailto:mail@uwe-arzt.de, https://uwe-arzt.de
 # under BSD License, see https://uwe-arzt.de/bsd-license/
 # ------------------------------------------------------------------------------
-CMAKE_MINIMUM_REQUIRED(VERSION 2.8.10)
+CMAKE_MINIMUM_REQUIRED(VERSION 2.8.9)
  
 # ------------------------------------------------------------------------------
 # git checkout location of mbed libraries
@@ -68,6 +68,7 @@ set(MBED_OBJECTS
   ${MBED_PATH}/mbed/TARGET_${MBED_TARGET}/TOOLCHAIN_GCC_ARM/system_${MBED_SYSTEM_PREFIX}xx.o
   ${MBED_PATH}/mbed/TARGET_${MBED_TARGET}/TOOLCHAIN_GCC_ARM/cmsis_nvic.o
   ${MBED_PATH}/mbed/TARGET_${MBED_TARGET}/TOOLCHAIN_GCC_ARM/retarget.o
+  ${MBED_PATH}/mbed/TARGET_${MBED_TARGET}/TOOLCHAIN_GCC_ARM/board.o
 )
 
 # ------------------------------------------------------------------------------
@@ -84,6 +85,12 @@ set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} \"-T${MBED_PATH}/mbed/TARG
 include_directories("${MBED_PATH}/mbed/")
 include_directories("${MBED_PATH}/mbed/TARGET_${MBED_TARGET}/")
 include_directories("${MBED_PATH}/mbed/TARGET_${MBED_TARGET}/TOOLCHAIN_GCC_ARM")
+
+if(MBED_TARGET MATCHES "LPC1768")
+  include_directories("${MBED_PATH}/mbed/TARGET_${MBED_TARGET}/TARGET_NXP/TARGET_LPC176X")
+  include_directories("${MBED_PATH}/mbed/TARGET_${MBED_TARGET}/TARGET_NXP/TARGET_LPC176X/TARGET_MBED_${MBED_TARGET}")
+endif()
+
 
 link_directories("${MBED_PATH}/mbed/TARGET_${MBED_TARGET}/TOOLCHAIN_GCC_ARM")
 

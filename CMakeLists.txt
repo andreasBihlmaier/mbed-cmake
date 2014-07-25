@@ -7,7 +7,7 @@
 # set the arm toolchain
 set(CMAKE_TOOLCHAIN_FILE mbed-cmake/arm_toolchain.cmake)
 
-cmake_minimum_required(VERSION 2.8.10)
+cmake_minimum_required(VERSION 2.8.9)
 
 project (BlinkLed C CXX ASM)
  
