@@ -12,14 +12,15 @@ set(ARM_GCC_PATH "/opt/local/gcc-arm")
 
 # ------------------------------------------------------------------------------
 # custom target to create .bin file
-add_custom_target(bin ALL
+add_custom_target(bin
   arm-none-eabi-objcopy -O binary ${BIN} ${BIN}.bin
 )
+add_dependencies(bin ${BIN})
 # custom target for copying to mbed device
 add_custom_target(upload
   cp ${BIN}.bin ${MBEDMOUNT}
-  DEPENDS bin
 )
+add_dependencies(upload bin)
 
 # ------------------------------------------------------------------------------
 # custom target for opening serial console
