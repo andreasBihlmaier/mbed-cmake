@@ -12,7 +12,7 @@ set(ARM_GCC_PATH "/opt/local/gcc-arm")
 
 # ------------------------------------------------------------------------------
 # custom target to create .bin file
-add_custom_target(bin
+add_custom_target(bin ALL
   arm-none-eabi-objcopy -O binary ${BIN} ${BIN}.bin
 )
 add_dependencies(bin ${BIN})
