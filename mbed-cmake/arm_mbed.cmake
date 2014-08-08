@@ -11,10 +11,14 @@ set(MBED_PATH "/opt/local/mbed/build")
 set(ARM_GCC_PATH "/opt/local/gcc-arm")
 
 # ------------------------------------------------------------------------------
+# custom target to create .bin file
+add_custom_target(bin ALL
+  arm-none-eabi-objcopy -O binary ${BIN} ${BIN}.bin
+)
 # custom target for copying to mbed device
 add_custom_target(upload
-  arm-none-eabi-objcopy -O binary ${BIN} ${BIN}.bin
-  COMMAND cp ${BIN}.bin ${MBEDMOUNT}
+  cp ${BIN}.bin ${MBEDMOUNT}
+  DEPENDS bin
 )
 
 # ------------------------------------------------------------------------------
