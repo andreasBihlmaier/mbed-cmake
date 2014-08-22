@@ -26,8 +26,8 @@ set(MBED_TARGET LPC1768)
 
 # ------------------------------------------------------------------------------
 # for installing an serial console
-set(MBEDMOUNT /Volumes/MBED)
-set(SERCON /dev/tty.usbmodem1442)
+set(MBEDMOUNT /media/MBED)
+set(SERCON /dev/ttyACM0)
 
  
 # ------------------------------------------------------------------------------
