@@ -10,12 +10,13 @@ set(CMAKE_TOOLCHAIN_FILE mbed-cmake/arm_toolchain.cmake)
 cmake_minimum_required(VERSION 2.8.9)
 
 project (BlinkLed C CXX ASM)
- 
+
 # ------------------------------------------------------------------------------
 # set the target processor and include settings for cmake
 
-set(MBED_TARGET LPC1768)
+#set(MBED_TARGET LPC1768)
 #set(MBED_TARGET LPC11U24)
+set(MBED_TARGET RBLAB_NRF51822)
 
 # ------------------------------------------------------------------------------
 # will add the include dirs and link the lib
@@ -29,7 +30,7 @@ set(MBED_TARGET LPC1768)
 set(MBEDMOUNT /media/MBED)
 set(SERCON /dev/ttyACM0)
 
- 
+
 # ------------------------------------------------------------------------------
 # build the executable
 set(BLINKLED_SRC
