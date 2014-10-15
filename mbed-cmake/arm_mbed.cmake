@@ -6,7 +6,8 @@ CMAKE_MINIMUM_REQUIRED(VERSION 2.8.9)
  
 # ------------------------------------------------------------------------------
 # git checkout location of mbed libraries
-set(MBED_PATH "/opt/local/mbed/build")
+#set(MBED_PATH "/opt/local/mbed/build")
+set(MBED_PATH "$ENV{HOME}/software/mbed/build")
 # location where the arm toolset is installed
 set(ARM_GCC_PATH "/opt/local/gcc-arm")
 
